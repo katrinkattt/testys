@@ -1,0 +1,86 @@
+$gardient: linear-gradient(45deg, #7117a5, blue)
+body
+    background-color: #515a6b
+    margin: 0
+    padding: 0
+    font-family: Arial, sans-serif
+
+.container__page
+    height: 100%
+    width: 100%
+    display: flex
+    justify-content: center
+
+.btn__main
+    position: absolute
+    display: block
+    height: 40px
+    width: 120px
+    padding-top: 15px
+    border-radius: 3px
+    background: $gardient
+    box-shadow: 2px 3px 4px #0000007e
+    text-decoration: none
+    overflow: hidden
+    & a
+        text-decoration: none
+        & span
+            height: 40px
+            width: 120px
+            overflow: hidden
+            padding: 20px 40px 20px 40px
+            font-size: 20px
+            color: #fff
+    &:hover
+        background: linear-gradient(25deg, #7817a5, blue)
+        box-shadow: 2px 3px 3px #00000055
+.btn__lnik
+    height: 100%
+    width: 100%
+
+
+.btn__position
+    width: 100%
+    height: 400px
+    padding-top: 70px
+    display: flex
+    justify-content: center
+
+.modal__main
+    height: 250px
+    width: -moz-fit-content
+    border-radius: 3px
+    background-color: #ffffff
+    position: absolute
+    margin-top: 20%
+    display: none
+    position: fixed
+
+.modal__title
+    height: 60px
+    background:  $gardient
+    padding: 2px
+    color: #ffffff
+    font-size: 20px
+    padding-top: 10px
+    &>div
+        float: left
+.modal__text__title
+    width: 88%
+    padding: 20px 0 0 20px
+.modal__close
+    display: flex
+    justify-content: center
+    height: 50px
+    width: 8%
+    background-color: #941010
+    font-size: 30px
+
+.modal__text
+    height: 160px
+    background: #ffffff
+    padding: 15px
+
+.modal__footer
+    height: 30px
+    background: $gardient
