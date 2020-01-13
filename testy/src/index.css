@@ -58,6 +58,7 @@ body {
   width: -moz-fit-content;
   border-radius: 3px;
   background-color: #ffffff;
+  box-shadow: 3px 3px 4px #000002c4;
   margin-top: 20%;
   z-index: 1;
   display: none;
@@ -87,7 +88,9 @@ body {
   height: 50px;
   width: 8%;
   background-color: #941010;
+  box-shadow: 2px 2px 3px #00000073;
   font-size: 30px;
+  cursor: pointer;
 }
 
 .modal__text {
@@ -108,4 +111,13 @@ body {
   position: fixed;
   z-index: 2;
   margin-top: 25px;
+  -o-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.modal__close__line1 {
+  -o-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }
