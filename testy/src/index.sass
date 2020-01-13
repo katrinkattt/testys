@@ -51,8 +51,8 @@ body
     width: -moz-fit-content
     border-radius: 3px
     background-color: #ffffff
-    position: absolute
     margin-top: 20%
+    z-index: 1
     display: none
     position: fixed
 
@@ -76,6 +76,7 @@ body
     background-color: #941010
     font-size: 30px
 
+
 .modal__text
     height: 160px
     background: #ffffff
@@ -84,3 +85,13 @@ body
 .modal__footer
     height: 30px
     background: $gardient
+
+.modal__close__line, .modal__close__line1
+    height: 4px
+    width: 35px
+    background-color: #ffffff
+    position: fixed
+    z-index:2
+    margin-top: 25px
+    
+
