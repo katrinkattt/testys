@@ -9,6 +9,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 const btn = document.getElementById('btnClick');
 const modal = document.getElementById('modal');
 const btnClose = document.getElementById('btnClose');
+const containerPage = document.getElementById('containerPage');
 
 btn.addEventListener('click', () => {
     modal.style.display='block';
