@@ -1,10 +1,11 @@
 import React from 'react';
-
+import Table from './components/table';
+import './bootstrap.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>hfjfjhfjfy</h1>
+      <Table />
     </div>
   );
 }
