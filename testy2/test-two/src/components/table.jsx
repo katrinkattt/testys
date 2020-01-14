@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import Btn from './btn';
+import StateBtn from './stateBtn';
+
 
 export default class Table extends Component {
     constructor(props){
@@ -58,29 +60,34 @@ export default class Table extends Component {
             ]
         }
     }
+Sorting(param){
 
-    Sorting(e){
-        var arr = 0
-        switch(e){
-        case 'id':
-            arr = this.initialState.people.map(a => a.id)
-        break;
-        case 'count':
-            arr = this.initialState.people.map(a => a.count)
-        break;
-        case 'date':
-            arr = this.initialState.people.map(a => a.date)
-        break;
-        case 'name':
-            arr = this.initialState.people.map(a => a.name)
-        break;
-        default:
-            alert('warning')
-        }
-        var beforeSort = arr
-        var res =  arr.sort()
-        alert(res+'res')
+    var arr = this.initialState.people
+    function SortingCount(param){
+        return function sorty(a, b){
+            if(a[param] > b[param]){
+                return 1
+            }
+            if(a[param] > b[param])
+                return -1
+        };
     }
+        arr.sort(SortingCount('count'));
+        alert(this.initialState.people[0].count)
+    
+
+    // idBtn.addEventListener('click', (e) =>{
+    //     arr.sort(SortingCount('date'));
+    //     alert(this.initialState.people[0].date)
+    // })
+    // countBtn.addEventListener('click', (e) => {
+    //     arr.sort(SortingCount('count'));
+    //     alert(this.initialState.people[0].count)
+    // })
+}
+
+
+
 
     render(){
         return(
@@ -88,10 +95,10 @@ export default class Table extends Component {
                 <table class="table table-striped table-dark">
                     <thead>
                         <tr>
-                        <th scope="col"><Btn text='id' id='idNum' func={ this.Sorting('id')}/></th>
-                        <th scope="col"><Btn text='name' id='name' func={this.Sorting('name')}/></th>
-                        <th scope="col"><Btn text='date' id='date' func={this.Sorting('date')}/></th>
-                        <th scope="col"><Btn text='count' id='count'  func={this.Sorting('count')}/></th>
+                        <th scope="col"><Btn text='id' id='idBtn'/></th>
+                        <th scope="col"><Btn text='name' id='nameBtn'/></th>
+                        <th scope="col"><Btn text='date' id='dateBtn'/></th>
+                        <th scope="col"><Btn text='count' id='countBtn'/></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -111,3 +118,4 @@ export default class Table extends Component {
         )
     }
 }
+
