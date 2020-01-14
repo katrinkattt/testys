@@ -3,3 +3,20 @@ body {
   margin: 0;
   background-color: #2f2d3d;
 }
+
+.btn__sort__main {
+  height: 30px;
+  width: 60px;
+  border-radius: 3px;
+  background-color: #441f64;
+  text-align: center;
+}
+.btn__sort__maina {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.table__main {
+  height: 70%;
+  width: 100%;
+}
