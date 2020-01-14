@@ -7,7 +7,14 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+// const idBtn = document.getElementById('idBtn')
+// const nameBtn = document.getElementById('nameBtn')
+// const dateBtn = document.getElementById('dateBtn')
+// const countBtn = document.getElementById('countBtn')
+// var countVal = false
+// countBtn.addEventListener('click', (e) =>{
+//     countVal =true
+// })
+
+
 serviceWorker.unregister();
