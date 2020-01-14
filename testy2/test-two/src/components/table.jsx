@@ -58,16 +58,40 @@ export default class Table extends Component {
             ]
         }
     }
+
+    Sorting(e){
+        var arr = 0
+        switch(e){
+        case 'id':
+            arr = this.initialState.people.map(a => a.id)
+        break;
+        case 'count':
+            arr = this.initialState.people.map(a => a.count)
+        break;
+        case 'date':
+            arr = this.initialState.people.map(a => a.date)
+        break;
+        case 'name':
+            arr = this.initialState.people.map(a => a.name)
+        break;
+        default:
+            alert('warning')
+        }
+        var beforeSort = arr
+        var res =  arr.sort()
+        alert(res+'res')
+    }
+
     render(){
         return(
             <div className="table__main">
                 <table class="table table-striped table-dark">
                     <thead>
                         <tr>
-                        <th scope="col"><Btn text='id' id='idNum'/></th>
-                        <th scope="col"><Btn text='name' id='name'/></th>
-                        <th scope="col"><Btn text='date' id='date'/></th>
-                        <th scope="col"><Btn text='count' id='count'/></th>
+                        <th scope="col"><Btn text='id' id='idNum' func={ this.Sorting('id')}/></th>
+                        <th scope="col"><Btn text='name' id='name' func={this.Sorting('name')}/></th>
+                        <th scope="col"><Btn text='date' id='date' func={this.Sorting('date')}/></th>
+                        <th scope="col"><Btn text='count' id='count'  func={this.Sorting('count')}/></th>
                         </tr>
                     </thead>
                     <tbody>
