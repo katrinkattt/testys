@@ -41,7 +41,7 @@ export default class Table extends Component {
                 {
                     id: 6,
                     name: 'Мария',
-                    date:'1.08.2016',
+                    date:'01.08.2016',
                     count: 122
                 },
                 {
@@ -60,32 +60,43 @@ export default class Table extends Component {
             ]
         }
     }
-Sorting(param){
+Sorting(l){
 
     var arr = this.initialState.people
-    function SortingCount(param){
-        return function sorty(a, b){
+    function SortingVal(param){
+        return function (a, b){
             if(a[param] > b[param]){
                 return 1
             }
-            if(a[param] > b[param])
+            if(a[param] < b[param]){
                 return -1
+            }
+            return 0
         };
     }
-        arr.sort(SortingCount('count'));
-        alert(this.initialState.people[0].count)
-    
 
-    // idBtn.addEventListener('click', (e) =>{
-    //     arr.sort(SortingCount('date'));
-    //     alert(this.initialState.people[0].date)
-    // })
-    // countBtn.addEventListener('click', (e) => {
-    //     arr.sort(SortingCount('count'));
-    //     alert(this.initialState.people[0].count)
-    // })
+    if(l == 'id'){
+        arr.sort(SortingVal('id'));
+        return
+            this.initialState.people.id = arr.sort(SortingVal('id'));
+    }
+    else if(l == 'name'){
+        arr.sort(SortingVal('name'));
+        return
+            this.initialState.people.name = arr.sort(SortingVal('name'));
+    }
+    else if(l == 'date'){
+        arr.sort(SortingVal('count'));
+        return
+            this.initialState.people.count = arr.sort(SortingVal('count'));
+    }
+    else if(l == 'count'){
+        arr.sort(SortingVal('count'));
+        return
+            this.initialState.people.count = arr.sort(SortingVal('count'));
+    }
+    this.render()
 }
-
 
 
 
@@ -95,10 +106,10 @@ Sorting(param){
                 <table class="table table-striped table-dark">
                     <thead>
                         <tr>
-                        <th scope="col"><Btn text='id' id='idBtn'/></th>
-                        <th scope="col"><Btn text='name' id='nameBtn'/></th>
-                        <th scope="col"><Btn text='date' id='dateBtn'/></th>
-                        <th scope="col"><Btn text='count' id='countBtn'/></th>
+                        <th scope="col"><Btn text='id' id='idBtn' onClick={this.Sorting('id')} /></th>
+                        <th scope="col"><Btn text='name' id='nameBtn' onClick={this.Sorting('name')}  /></th>
+                        <th scope="col"><Btn text='date' id='dateBtn' onClick={this.Sorting('date')}/></th>
+                        <th scope="col"><Btn text='count' id='countBtn'  onClick={this.Sorting('count')}/></th>
                         </tr>
                     </thead>
                     <tbody>
