@@ -19,22 +19,3 @@ export default class Container extends Component{
     }
 }
 
-    // constructor(props){
-    //     super(props)
-    //     this.setState = {
-    //         curValue:'none',
-    //         nextValue:[
-    //             'block',
-    //             'none',
-    //             'block'
-    //         ]
-    //     }
-    // };
-    // click(){
-    //     const btn = document.getElementById('btnClick')
-    //     const modal = document.getElementById('modal')
-    //     btn.addEventListener('click', (display) =>{
-    //         modal.style.display='block'
-    //     });
-    // };
-
