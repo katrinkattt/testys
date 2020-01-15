@@ -60,7 +60,7 @@ export default class Table extends Component {
             ]
         }
     }
-Sorting(l){
+Sorting(e){
 
     var arr = this.initialState.people
     function SortingVal(param){
@@ -75,27 +75,26 @@ Sorting(l){
         };
     }
 
-    if(l == 'id'){
+    if(e == 'id'){
         arr.sort(SortingVal('id'));
         return
             this.initialState.people.id = arr.sort(SortingVal('id'));
     }
-    else if(l == 'name'){
+    else if(e == 'name'){
         arr.sort(SortingVal('name'));
         return
             this.initialState.people.name = arr.sort(SortingVal('name'));
     }
-    else if(l == 'date'){
+    else if(e == 'date'){
         arr.sort(SortingVal('count'));
         return
             this.initialState.people.count = arr.sort(SortingVal('count'));
     }
-    else if(l == 'count'){
+    else if(e == 'count'){
         arr.sort(SortingVal('count'));
         return
             this.initialState.people.count = arr.sort(SortingVal('count'));
     }
-    this.render()
 }
 
 
@@ -103,13 +102,13 @@ Sorting(l){
     render(){
         return(
             <div className="table__main">
-                <table class="table table-striped table-dark">
+                <table className="table table-striped table-dark">
                     <thead>
                         <tr>
-                        <th scope="col"><Btn text='id' id='idBtn' onClick={this.Sorting('id')} /></th>
-                        <th scope="col"><Btn text='name' id='nameBtn' onClick={this.Sorting('name')}  /></th>
-                        <th scope="col"><Btn text='date' id='dateBtn' onClick={this.Sorting('date')}/></th>
-                        <th scope="col"><Btn text='count' id='countBtn'  onClick={this.Sorting('count')}/></th>
+                            <th scope="col"><Btn text='id' id='idBtn' func={this.Sorting('id')} /></th>
+                            <th scope="col"><Btn text='name' id='nameBtn' func={this.Sorting('name')}  /></th>
+                            <th scope="col"><Btn text='date' id='dateBtn' func={this.Sorting('date')}/></th>
+                            <th scope="col"><Btn text='count' id='countBtn'  func={this.Sorting('count')}/></th>
                         </tr>
                     </thead>
                     <tbody>
