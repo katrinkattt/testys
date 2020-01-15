@@ -1,12 +1,11 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import Btn from './btn';
 import StateBtn from './stateBtn';
 
 
-export default class Table extends Component {
-    constructor(props){
-        super(props)
-        this.initialState = {
+export default function Table() {
+    const [state, setState] = useState(initialState);
+        var initialState = {
             people: [
                 {
                     id: 1,
@@ -57,68 +56,39 @@ export default class Table extends Component {
                     count: 10
                 },
 
-            ]
+        ]
+    }
+function sorting(param){
+    var arr = initialState.people
+    return function (a, b){
+        if(a[param] > b[param]){
+            return 1
         }
-    }
-Sorting(e){
-
-    var arr = this.initialState.people
-    function SortingVal(param){
-        return function (a, b){
-            if(a[param] > b[param]){
-                return 1
-            }
-            if(a[param] < b[param]){
-                return -1
-            }
-            return 0
-        };
-    }
-
-    if(e == 'id'){
-        arr.sort(SortingVal('id'));
-        return
-            this.initialState.people.id = arr.sort(SortingVal('id'));
-    }
-    else if(e == 'name'){
-        arr.sort(SortingVal('name'));
-        return
-            this.initialState.people.name = arr.sort(SortingVal('name'));
-    }
-    else if(e == 'date'){
-        arr.sort(SortingVal('count'));
-        return
-            this.initialState.people.count = arr.sort(SortingVal('count'));
-    }
-    else if(e == 'count'){
-        arr.sort(SortingVal('count'));
-        return
-            this.initialState.people.count = arr.sort(SortingVal('count'));
+        if(a[param] < b[param]){
+            return -1
+        }
+        return initialState.people.param = arr.sort(sorting(param));
     }
 }
-
-
-
-    render(){
-        return(
+    return(
             <div className="table__main">
                 <table className="table table-striped table-dark">
                     <thead>
                         <tr>
-                            <th scope="col"><Btn text='id' id='idBtn' func={this.Sorting('id')} /></th>
-                            <th scope="col"><Btn text='name' id='nameBtn' func={this.Sorting('name')}  /></th>
-                            <th scope="col"><Btn text='date' id='dateBtn' func={this.Sorting('date')}/></th>
-                            <th scope="col"><Btn text='count' id='countBtn'  func={this.Sorting('count')}/></th>
+                            <th scope="col"><Btn text='id' id='idBtn' func={sorting('id')} /></th>
+                            <th scope="col"><Btn text='name' id='nameBtn' func={sorting('name')}  /></th>
+                            <th scope="col"><Btn text='date' id='dateBtn' func={sorting('date')}/></th>
+                            <th scope="col"><Btn text='count' id='countBtn'  func={sorting('count')}/></th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            this.initialState.people.map((score, c) =>
+                            initialState.people.map((score, c) =>
                             <tr>
-                                <th scope="row">{this.initialState.people[c].id}</th>
-                                <td>{this.initialState.people[c].name}</td>
-                                <td>{this.initialState.people[c].date}</td>
-                                <td>{this.initialState.people[c].count}</td>
+                                <th scope="row">{initialState.people[c].id}</th>
+                                <td>{initialState.people[c].name}</td>
+                                <td>{initialState.people[c].date}</td>
+                                <td>{initialState.people[c].count}</td>
                             </tr>
                             )
                         }
@@ -127,5 +97,3 @@ Sorting(e){
             </div>
         )
     }
-}
-
