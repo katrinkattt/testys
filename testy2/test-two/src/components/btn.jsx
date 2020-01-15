@@ -3,7 +3,8 @@ import React, {Component} from 'react';
 export default function Btn (props){
     return(
         <div className="btn__sort__main">
-            <a onClick={props.func} href="#" id={`${props.id}`}>{props.text}</a>
+            <button type="button"  onClick={props.onClick} id={props.id} className="btn btn-primary">{props.text}</button>
+            {/* <a  href="#" id={`${props.id}`}></a> */}
         </div>
     )
 }
