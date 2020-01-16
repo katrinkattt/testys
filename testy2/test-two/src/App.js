@@ -1,11 +1,17 @@
 import React from 'react';
-import Table from './components/table';
-import './bootstrap.css';
+import Container from './components/container';
+import Footer from './components/footer.jsx';
+
 
 function App() {
   return (
     <div className="App">
-      <Table />
+      <section>
+        <Container />
+      </section>
+      <footer>
+        <Footer text="please" />
+      </footer>
     </div>
   );
 }
