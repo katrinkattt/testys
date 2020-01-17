@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import Btn from './btn';
 
-export default function Table() {
+export default function Table(props) {
         var initialState = {
             people: [
                 {
@@ -57,49 +57,43 @@ export default function Table() {
         ]
     }
 
-    var arr = initialState.people
-    function sorting(param){
-        // сортирует при загрузке
-        // arr.sort((a, b) => (a[param] > b[param]) ? 1 : ((a[param] < b[param]) ? -1 : 0));
+    var arr = initialState.people;
 
-            // сортирует по нажатию
-            return function (a, b){
-            if(a[param] > b[param]){
-                return 1
-            }
-            if(a[param] < b[param]){
-                return -1
-            }
-        initialState.people[param] = arr.sort(sorting);
+    function sorting(param){
+
+        function sorts(param){
+            alert(param)
+            arr.sort((a, b) => (a[param] > b[param]) ? 1 : ((a[param] < b[param]) ? -1 : 0));
+        }
+        return function(){
+            return  sorts(param)
         }
     }
-
-
-        return(
-            <div className="table__main">
-                <table className="table table-striped table-dark">
-                    <thead>
+    return(
+        <div className="table__main">
+            <table className="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col"><Btn text='id' id='idBtn' func={sorting('id')} /></th>
+                        <th scope="col"><Btn text='name' id='nameBtn'  func={sorting('name')}/></th>
+                        <th scope="col"><Btn text='date' id='dateBtn' func={sorting('date')}/></th>
+                        <th scope="col"><Btn text='count' id='countBtn' func={sorting('count')} /></th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    {
+                        initialState.people.map((score, c) =>
                         <tr>
-                            <th scope="col"><Btn text='id' id='idBtn' func={sorting('id')} /></th>
-                            <th scope="col"><Btn text='name' id='nameBtn'  func={sorting('name')} /></th>
-                            <th scope="col"><Btn text='date' id='dateBtn' func={sorting('date')}/></th>
-                            <th scope="col"><Btn text='count' id='countBtn' func={sorting('count')} /></th>
+                            <th scope="row">{initialState.people[c].id}</th>
+                            <td>{initialState.people[c].name}</td>
+                            <td>{initialState.people[c].date}</td>
+                            <td>{initialState.people[c].count}</td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            initialState.people.map((score, c) =>
-                            <tr>
-                                <th scope="row">{initialState.people[c].id}</th>
-                                <td>{initialState.people[c].name}</td>
-                                <td>{initialState.people[c].date}</td>
-                                <td>{initialState.people[c].count}</td>
-                            </tr>
-                            )
-                        }
+                        )
+                    }
                     </tbody>
                 </table>
             </div>
         )
     }
-// пожалуйста возьмите меня на работу :3
+
