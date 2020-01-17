@@ -59,8 +59,10 @@ export default function Table() {
 
     var arr = initialState.people
     function sorting(param){
+        // сортирует при загрузке
         // arr.sort((a, b) => (a[param] > b[param]) ? 1 : ((a[param] < b[param]) ? -1 : 0));
 
+            // сортирует по нажатию
             return function (a, b){
             if(a[param] > b[param]){
                 return 1
@@ -100,3 +102,4 @@ export default function Table() {
             </div>
         )
     }
+// пожалуйста возьмите меня на работу :3
