@@ -10,7 +10,7 @@ function App() {
         <Container />
       </section>
       <footer>
-        <Footer text="please" />
+        <Footer text="please take me to work" />
       </footer>
     </div>
   );
